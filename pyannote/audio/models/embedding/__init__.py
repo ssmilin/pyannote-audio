@@ -23,4 +23,4 @@
 
 from .xvector import XVectorMFCC, XVectorSincNet
 
-__all__ = ["XVectorSincNet", "XVectorMFCC"]
+__all__ = ["XVectorSincNet", "XVectorMFCC", "EcapaMFCC", "EcapaSincNet"]
