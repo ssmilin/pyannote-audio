@@ -198,13 +198,21 @@ class Model(pl.LightningModule):
             example_output: torch.Tensor,
             specifications: Specifications = None,
         ) -> Output:
-            _, num_frames, dimension = example_output.shape
+            
+            # custom code by smilin
+            # _, num_frames, dimension = example_output.shape
+            if specifications.resolution == Resolution.FRAME:
+                _, num_frames, dimension = example_output.shape
+            elif specifications.resolution == Resolution.CHUNK:
+                _, dimension = example_output.shape
+            # custom code end here
 
             if specifications.resolution == Resolution.FRAME:
                 frame_duration = specifications.duration / num_frames
                 frames = SlidingWindow(step=frame_duration, duration=frame_duration)
             else:
                 frames = None
+                num_frames = None
 
             return Output(
                 num_frames=num_frames,
