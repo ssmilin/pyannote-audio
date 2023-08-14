@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
+from .ecapa import EcapaMFCC, EcapaSincNet
 from .xvector import XVectorMFCC, XVectorSincNet
 
 __all__ = ["XVectorSincNet", "XVectorMFCC", "EcapaMFCC", "EcapaSincNet"]
